@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:08:37 by labderra          #+#    #+#             */
-/*   Updated: 2024/11/25 13:49:51 by labderra         ###   ########.fr       */
+/*   Updated: 2024/11/25 20:57:24 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,13 @@ void	PhoneBook::addContact(Contact new_Contact)
 
 void	PhoneBook::getContactInline(int i)
 {
+	std::cout << i;
 	if (_book[i]._first_name.size() > 10)
-		std::cout << "|" << _book[i]._first_name.substr(0, 8) << ".";
+		std::cout << " |" << _book[i]._first_name.substr(0, 8) << ".";
 	else
 	{
-		std::cout << std::setw(11);
-		std::cout << "|" << _book[i]._first_name;
+		std::cout << std::setw(12);
+		std::cout << " |" << _book[i]._first_name;
 	}
 	if (_book[i]._last_name.size() > 10)
 		std::cout << "|" << _book[i]._last_name.substr(0, 8) << ".";
