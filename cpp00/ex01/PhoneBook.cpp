@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:08:37 by labderra          #+#    #+#             */
-/*   Updated: 2024/11/26 13:40:40 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:50:37 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ Contact::~Contact(){
 
 PhoneBook::PhoneBook()
 {
-	_first_contact = 0;
-	_last_contact = 0;
+	_next_contact = 0;
 }
 	
 PhoneBook::~PhoneBook(){
@@ -61,21 +60,18 @@ void	PhoneBook::getList()
 
 void	PhoneBook::getContact(int i)
 {
-	std::cout << "First Name : " << _book[i]._first_name << std::endl;
-	std::cout << "Last Name  : " << _book[i]._last_name << std::endl;
-	std::cout << "Nickname   : " << _book[i]._nickname << std::endl;
-	std::cout << "Phone N.   : " << _book[i]._first_name << std::endl;
+		std::cout << "First Name : " << _book[i]._first_name << std::endl;
+		std::cout << "Last Name  : " << _book[i]._last_name << std::endl;
+		std::cout << "Nickname   : " << _book[i]._nickname << std::endl;
+		std::cout << "Phone N.   : " << _book[i]._first_name << std::endl;
 }
 
 void	PhoneBook::addContact(Contact new_Contact)
 {
-	if ((_last_contact + 1) % 9 == _first_contact)
-	{
-		_book[_first_contact].~Contact();
-		_first_contact = (_first_contact + 1) % 9;
-	}
-	_book[_last_contact] = new_Contact;		
-	_last_contact = (_last_contact + 1) % 9;
+	_next_contact %= 8;
+	_book[_next_contact].~Contact();
+	_book[_next_contact] = new_Contact;
+	_next_contact++;
 }
 
 void	PhoneBook::getContactInline(int i)

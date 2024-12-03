@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:08:37 by labderra          #+#    #+#             */
-/*   Updated: 2024/11/25 13:39:14 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/02 18:46:59 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ public:
 private:
 	void	getContactInline(int i);
 	Contact	_book[8];
-	int		_first_contact;
-	int		_last_contact;
+	int		_next_contact;
 };
 
 #endif
