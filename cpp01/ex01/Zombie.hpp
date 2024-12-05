@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 19:38:31 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/05 12:51:27 by labderra         ###   ########.fr       */
+/*   Created: 2024/12/04 18:34:56 by labderra          #+#    #+#             */
+/*   Updated: 2024/12/05 13:13:54 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+
 #include <iostream>
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-int	main(int argc, char **argv){
-	Zombie	*braindead;
-
-	if (argc != 2)
-		return (1);
-	braindead = newZombie(argv[1]);
-	braindead->announce();
-	delete braindead;
+class Zombie
+{
+private:
+	std::string	name;
 	
-	randomChump(argv[1]);
-	
-	return (0);
-}
+public:
+	Zombie();
+	Zombie(std::string name);
+	~Zombie();
+
+	void set_name(std::string name);
+	void announce(void);
+};
+
+#endif

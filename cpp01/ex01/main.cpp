@@ -6,26 +6,22 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 19:38:31 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/05 12:51:27 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/05 13:23:12 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie	*zombieHorde(int N, std::string name);
 
 int	main(int argc, char **argv){
-	Zombie	*braindead;
+	Zombie	*walkers;
 
-	if (argc != 2)
+	if (argc != 3)
 		return (1);
-	braindead = newZombie(argv[1]);
-	braindead->announce();
-	delete braindead;
-	
-	randomChump(argv[1]);
+	walkers = zombieHorde(argv[1]., argv[2]);
+
 	
 	return (0);
 }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 19:38:31 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/05 12:51:27 by labderra         ###   ########.fr       */
+/*   Created: 2024/12/04 18:39:54 by labderra          #+#    #+#             */
+/*   Updated: 2024/12/05 13:14:40 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <iostream>
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie::Zombie() {
+	this->name = "";
+}
 
-int	main(int argc, char **argv){
-	Zombie	*braindead;
+Zombie::Zombie(std::string name) {
+	this->name = name;
+}
 
-	if (argc != 2)
-		return (1);
-	braindead = newZombie(argv[1]);
-	braindead->announce();
-	delete braindead;
-	
-	randomChump(argv[1]);
-	
-	return (0);
+Zombie::~Zombie() {
+}
+
+void Zombie::set_name(std::string name) {
+	this->name = name;
+}
+
+void Zombie::announce(void) {
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

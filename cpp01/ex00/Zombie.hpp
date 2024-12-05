@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:34:56 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/04 18:47:43 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:55:16 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ private:
 	std::string	name;
 	
 public:
+	Zombie();
 	Zombie(std::string name);
 	~Zombie();
 
-	void
-	announce(void);
+	void announce(void);
+	
+	void set_name(std::string);
 };
 
 #endif
