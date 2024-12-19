@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/16 13:17:37 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/17 12:00:12 by labderra         ###   ########.fr       */
+/*   Created: 2024/12/17 12:02:08 by labderra          #+#    #+#             */
+/*   Updated: 2024/12/17 12:03:35 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_H
-# define FIXED_H
-# include <iostream>
+#include "Fixed.hpp"
+#include <iostream>
 
-class Fixed
-{
-private:
-	int	value;
-	enum {fraction = 8};
-
-public:
-
-	Fixed();
-	Fixed(const Fixed& f);
-	Fixed& operator=(const Fixed& f);
-	~Fixed();
+int main( void ) {
 	
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 	
-};
+	c = b;
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-#endif
+	return 0;
+}
