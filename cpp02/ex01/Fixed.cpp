@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:16:08 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/17 12:12:38 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/20 13:57:43 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ Fixed::Fixed() {
 Fixed::Fixed(const Fixed& f){
 	std::cout << "Copy constructor called" << std::endl;
 	this->setRawBits(f.getRawBits());
+}
+
+Fixed::Fixed(const int n) {
+	std::cout << "Integer constructor called" << std::endl;
+	this->setRawBits(n << this->fraction);
+}
+
+Fixed::Fixed(const float f) {
+	std::cout << "Float constructor called" << std::endl;
+	this->setRawBits(static_cast<int>(f * pow( 2, this->fraction)));
 }
 
 Fixed& Fixed::operator=(const Fixed& f){
@@ -36,10 +46,21 @@ Fixed::~Fixed() {
 }
 
 int Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
 }
 
 void Fixed::setRawBits(int const raw) {
 	this->value = raw;
+}
+
+float Fixed::toFloat( void ) const {
+	return (static_cast<float> (this->getRawBits()) / pow (2, this->fraction));
+}
+
+int Fixed::toInt( void ) const {
+	return (this->getRawBits() / pow(2, this->fraction));
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& f) {
+	return (os << f.toFloat());
 }
