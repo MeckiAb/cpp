@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:16:08 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/23 12:58:05 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:36:23 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,75 @@ Fixed& Fixed::operator=( Fixed f ) {
 	swap(f);
 	return (*this);
 }
+
+int Fixed::operator<( const Fixed& f) {
+	return ( this->getRawBits() < f.getRawBits());
+}
+
+int Fixed::operator>( const Fixed& f) {
+	return ( this->getRawBits() > f.getRawBits());
+}
+
+int Fixed::operator<=( const Fixed& f) {
+	return ( this->getRawBits() <= f.getRawBits());
+}
+
+int Fixed::operator>=( const Fixed& f) {
+	return ( this->getRawBits() >= f.getRawBits());
+}
+
+int Fixed::operator==( const Fixed& f) {
+	return ( this->getRawBits() == f.getRawBits());
+}
+
+int Fixed::operator!=( const Fixed& f) {
+	return ( this->getRawBits() != f.getRawBits());
+}
+
+Fixed& Fixed::operator+=( const Fixed& f) {
+	this->setRawBits(this->getRawBits() + f.getRawBits());
+	return *this;
+}
+
+Fixed Fixed::operator+( const Fixed& f ) {
+	Fixed result(f);
+	result += *this;
+	return (result);	
+}
+
+Fixed& Fixed::operator-=( const Fixed& f) {
+	this->setRawBits(this->getRawBits() - f.getRawBits());
+	return *this;
+}
+
+Fixed Fixed::operator-( const Fixed& f ) {
+	Fixed result(f);
+	result -= *this;
+	return (result);	
+}
+
+Fixed& Fixed::operator*=( const Fixed& f) {
+	this->setRawBits(this->getRawBits() + f.getRawBits());
+	return *this;
+}
+
+Fixed Fixed::operator*( const Fixed& f ) {
+	Fixed result(f);
+	result += *this;
+	return (result);	
+}
+
+Fixed& Fixed::operator/=( const Fixed& f) {
+	this->setRawBits(this->getRawBits() + f.getRawBits());
+	return *this;
+}
+
+Fixed Fixed::operator/( const Fixed& f ) {
+	Fixed result(f);
+	result += *this;
+	return (result);	
+}
+
 
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;

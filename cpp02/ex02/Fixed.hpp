@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:17:37 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/23 12:55:30 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:35:04 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,26 @@ public:
 	Fixed( const Fixed& f );
 	Fixed( const int n );
 	Fixed( const float f );
+	
 	void swap( Fixed& f);
 	Fixed& operator=( Fixed f );
+	
+	int operator<( const Fixed& f );
+	int operator>( const Fixed& f );
+	int operator<=( const Fixed& f );
+	int operator>=( const Fixed& f );
+	int operator==( const Fixed& f );
+	int operator!=( const Fixed& f );
+	
+	Fixed& operator+=( const Fixed& f );
+	Fixed operator+( const Fixed& f );
+	Fixed& operator-=( const Fixed& f );
+	Fixed operator-( const Fixed& f );
+	Fixed& operator*=( const Fixed& f );
+	Fixed operator*( const Fixed& f );
+	Fixed& operator/=( const Fixed& f );
+	Fixed operator/( const Fixed& f );
+	
 	~Fixed();
 	
 	int getRawBits( void ) const;
