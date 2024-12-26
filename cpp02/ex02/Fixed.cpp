@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:16:08 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/23 14:36:23 by labderra         ###   ########.fr       */
+/*   Updated: 2024/12/26 13:08:06 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,25 +89,67 @@ Fixed Fixed::operator-( const Fixed& f ) {
 }
 
 Fixed& Fixed::operator*=( const Fixed& f) {
-	this->setRawBits(this->getRawBits() + f.getRawBits());
+	long aux = this->getRawBits() * f.getRawBits();
+	this->setRawBits(static_cast<int>(aux >> this->fraction));
 	return *this;
 }
 
 Fixed Fixed::operator*( const Fixed& f ) {
 	Fixed result(f);
-	result += *this;
+	result *= *this;
 	return (result);	
 }
 
 Fixed& Fixed::operator/=( const Fixed& f) {
-	this->setRawBits(this->getRawBits() + f.getRawBits());
+	long aux = (this->getRawBits() << this->fraction) / f.getRawBits();
+	this->setRawBits(static_cast<int>(aux));
 	return *this;
 }
 
 Fixed Fixed::operator/( const Fixed& f ) {
 	Fixed result(f);
-	result += *this;
+	result /= *this;
 	return (result);	
+}
+
+Fixed& Fixed::operator++() {
+	this->setRawBits(this->getRawBits() + 1);
+	return (*this);
+}
+
+Fixed Fixed::operator++( int ) {
+	Fixed old = *this;
+	operator++();
+	return old;
+}
+
+Fixed& Fixed::operator--() {
+	this->setRawBits(this->getRawBits() - 1);
+	return (*this);
+}
+
+Fixed Fixed::operator--( int ) {
+	Fixed old = *this;
+	operator--();
+	return old;
+}
+
+Fixed& Fixed::min(Fixed& left, Fixed& right) {
+	return (left < right ? left : right);
+}
+
+Fixed& Fixed::min(const Fixed& left, const Fixed& right) {
+	return (const_cast<Fixed&>(left) < const_cast<Fixed&>(right) 
+		? const_cast<Fixed&>(left) : const_cast<Fixed&>(right));
+}
+
+Fixed& Fixed::max(Fixed& left, Fixed& right) {
+		return (left > right ? left : right);
+}
+
+Fixed& Fixed::max(const Fixed& left, const Fixed& right) {
+	return (const_cast<Fixed&>(left) > const_cast<Fixed&>(right) 
+		? const_cast<Fixed&>(left) : const_cast<Fixed&>(right));
 }
 
 
