@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,26 +11,22 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#ifndef CONTACT_H
-# define CONTACT_H
-# include "Contact.hpp"
 
-/*	Class PhoneBook
+/*	Class Contact
 ---------------------*/
 
-class PhoneBook {
+class Contact {
 
 public:
-	PhoneBook(void);
-	~PhoneBook(void);
-	void	getList();
-	void	getContact(int i);
-	void	addContact(Contact new_Contact);
+	Contact();
+	Contact(std::string _first_name, std::string _last_name, std::string _nickname,
+		std::string _phone_number, std::string _darkest_secret);
+	~Contact(void);
+	std::string		_first_name;
+	std::string		_last_name;
+	std::string		_nickname;
+	std::string		_phone_number;
 
 private:
-	void	getContactInline(int i);
-	Contact	_book[8];
-	int		_next_contact;
+	std::string		_darkest_secret;
 };
-
-#endif

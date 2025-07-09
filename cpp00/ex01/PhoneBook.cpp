@@ -14,29 +14,8 @@
 #include <iomanip>
 
 #ifndef PHONEBOOK_H
-#include "PhoneBook.hpp"
+# include "PhoneBook.hpp"
 
-
-/*	Class Contact
----------------------*/
-
-Contact::Contact(){
-	
-}
-
-Contact::Contact(std::string first, std::string last, std::string nick,
-		std::string phone, std::string secret)
-{
-	_first_name = first;
-	_last_name = last;
-	_nickname = nick;
-	_phone_number = phone;
-	_darkest_secret = secret;
-}
-
-Contact::~Contact(){
-	
-}
 
 /*	Class PhoneBook
 ---------------------*/
@@ -63,7 +42,7 @@ void	PhoneBook::getContact(int i)
 		std::cout << "First Name : " << _book[i]._first_name << std::endl;
 		std::cout << "Last Name  : " << _book[i]._last_name << std::endl;
 		std::cout << "Nickname   : " << _book[i]._nickname << std::endl;
-		std::cout << "Phone N.   : " << _book[i]._first_name << std::endl;
+		std::cout << "Phone N.   : " << _book[i]._phone_number << std::endl;
 }
 
 void	PhoneBook::addContact(Contact new_Contact)

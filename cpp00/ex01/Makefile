@@ -1,7 +1,7 @@
 NAME = awesome
 CC = c++ -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = PhoneBook.cpp awesome.cpp
+SRC = Contact.cpp PhoneBook.cpp awesome.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

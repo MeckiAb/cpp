@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
 #include <iostream>
 #include <string>
 #include <limits>
+#include "PhoneBook.hpp"
 
 int	main(void)
 {
@@ -60,7 +60,7 @@ int	main(void)
 			std::cout << "\t-----------------------------------------------" << std::endl;
 			std::cout << "\n\tSelect Contact : " << std::flush;
 			id = std::cin.get();
-			if (!std::cin.eof() && (id >= '0' && id < '8'))
+			if (!std::cin.eof() && id && (id >= '0' && id < '8'))
 				awesome.getContact(id - '0');
 			else
 				!std::cin.eof() && std::cout << "\nError. " << std::flush;
