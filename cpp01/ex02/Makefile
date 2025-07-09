@@ -1,5 +1,5 @@
 NAME = Hi_brain
-CC = c++ -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CC = c++ -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
 
 SRC = main.cpp
 
