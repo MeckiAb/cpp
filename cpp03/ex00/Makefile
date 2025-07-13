@@ -1,5 +1,5 @@
 NAME = Battle
-CC = c++ -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CC = c++ -Wall -Wextra -Werror -std=c++98 -g 
 
 SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
@@ -19,5 +19,8 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+test : re
+	./Battle
 
 .PHONY : all clean fclean re
