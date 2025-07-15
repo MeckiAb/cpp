@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 20:59:04 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/15 09:50:33 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:08:07 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,55 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap Destructor called " << std::endl;
 }
     
-void	ScavTrap::attack(const std::string& target);
-void	ScavTrap::takeDamage(unsigned int amount);
-void	ScavTrap::beRepaired(unsigned int amount);
-void	ScavTrap::guardGate();
+void	ScavTrap::attack(const std::string& target) {
+	if (this->_gateKeeperMode) {
+		std::cout << "ScavTrap " << this->_name << " is in GateKeeper Mode. Can not attack." << std::endl;
+		return;
+	}
+	if (this->_energy && this->_health) {
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing "<< this->_damage << " points of damage!" << std::endl;
+		this->_energy -= 1;
+	}
+	else
+		std::cout << "ScavTrap " << this->_name << " can not take any actions." << std::endl;
+}
+
+void	ScavTrap::takeDamage(unsigned int amount) {
+	if (this->_gateKeeperMode) {
+		std::cout << "ScavTrap " << this->_name << " is in GateKeeper Mode. No damage suffered." << std::endl;
+		return;
+	}
+	if (this->_health > amount) {
+		std::cout << "ScavTrap " << this->_name << " suffers " << amount << " points of damage!" << std::endl;
+		this->_health -= amount;
+		return;
+	}
+	if (this->_health) {
+		std::cout << "ScavTrap " << this->_name << " suffers " << amount << " points of damage and is destroyed!" << std::endl;
+		this->_health = 0;
+	}
+	else
+	std::cout << "ScavTrap " << this->_name << " was already destroyed!" << std::endl;
+}
+
+void	ScavTrap::beRepaired(unsigned int amount) {
+	if (this->_energy) {
+		std::cout << "ScavTrap " << this->_name << " recovers " << amount << " points of health!" << std::endl;
+		this->_health += amount;
+		this->_energy -= 1;
+	}
+	else
+		std::cout << "ScavTrap " << this->_name << " can not take any actions." << std::endl;
+}
+
+void	ScavTrap::guardGate() {
+	std::cout << "ScavTrap " << this->_name;
+	if (!this->_gateKeeperMode) {
+		this->_gateKeeperMode = true;
+		std::cout << " enters GateKeeper Mode" << std::endl;
+	} 
+	else {
+		this->_gateKeeperMode = false;
+		std::cout << " exits GateKeeper Mode" << std::endl;
+	}
+}

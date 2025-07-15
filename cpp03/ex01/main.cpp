@@ -3,29 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 19:40:22 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/13 16:40:00 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:42:19 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main() {
 	std::cout << "--- CREATE INSTANCES ---" << std::endl;
-	ClapTrap NoName;
-	ClapTrap Hollie = ClapTrap("Hollie");
+	ScavTrap NoName;
+	ScavTrap Hollie = ScavTrap("Hollie");
 	
 	std::cout << "\n--- ATTACK ACTION ---" << std::endl;
 	Hollie.attack("Enemy");
 	Hollie.attack("Johnie");
 	
 	std::cout << "\n--- TAKES DAMAGE, STILL ALIVE ---" << std::endl;
-	Hollie.takeDamage(9);
+	Hollie.takeDamage(99);
 	Hollie.attack("Another Enemy");
+	
+	std::cout << "\n--- ENTERS GATEKEEPER, TAKES DAMAGE AND ATTACKS ---" << std::endl;
+	Hollie.guardGate();
+	Hollie.takeDamage(99);
+	Hollie.attack("While GateKeeper Mode");
 
 	std::cout << "\n--- TAKES DAMAGE, IS DESTROYED ---" << std::endl;
+	Hollie.guardGate();
 	Hollie.takeDamage(1);
 	Hollie.attack("Last Enemy");
 
@@ -38,11 +44,52 @@ int	main() {
 	Hollie.attack("Dummy");
 	Hollie.attack("Dummy");
 	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+	Hollie.attack("Dummy");
+
 
 	std::cout << "\n--- MAKES COPY, STILL EXHAUSTED ---" << std::endl;
-	ClapTrap Johnie = ClapTrap(Hollie);
+	ScavTrap Johnie = ScavTrap(Hollie);
 	Johnie.attack("Dummy");
-	Johnie.~ClapTrap();
+	Johnie.~ScavTrap();
 	Johnie = Hollie;
 	Johnie.attack("Dummy");
 	
