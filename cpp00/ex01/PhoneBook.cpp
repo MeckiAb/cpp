@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:08:37 by labderra          #+#    #+#             */
-/*   Updated: 2024/12/02 18:50:37 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/15 13:30:34 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	PhoneBook::getList()
 
 void	PhoneBook::getContact(int i)
 {
-		std::cout << "First Name : " << _book[i]._first_name << std::endl;
-		std::cout << "Last Name  : " << _book[i]._last_name << std::endl;
-		std::cout << "Nickname   : " << _book[i]._nickname << std::endl;
-		std::cout << "Phone N.   : " << _book[i]._phone_number << std::endl;
+		std::cout << "First Name : " << _book[i].getFirstName() << std::endl;
+		std::cout << "Last Name  : " << _book[i].getLastName() << std::endl;
+		std::cout << "Nickname   : " << _book[i].getNickname() << std::endl;
+		std::cout << "Phone N.   : " << _book[i].getPhoneNumber() << std::endl;
 }
 
 void	PhoneBook::addContact(Contact new_Contact)
@@ -57,36 +57,36 @@ void	PhoneBook::getContactInline(int i)
 {
 	std::cout << "\t" << i;
 	std::cout << " |";
-	if (_book[i]._first_name.size() > 10)
-		 std::cout << _book[i]._first_name.substr(0, 9) << ".";
+	if (_book[i].getFirstName().size() > 10)
+		 std::cout << _book[i].getFirstName().substr(0, 9) << ".";
 	else
 	{
 		std::cout << std::right << std::setw(10);
-		std::cout << _book[i]._first_name;
+		std::cout << _book[i].getFirstName();
 	}
 	std::cout << "|";
-	if (_book[i]._last_name.size() > 10)
-		std::cout << _book[i]._last_name.substr(0, 9) << ".";
+	if (_book[i].getLastName().size() > 10)
+		std::cout << _book[i].getLastName().substr(0, 9) << ".";
 	else
 	{
 		std::cout << std::right << std::setw(10);
-		std::cout << _book[i]._last_name;
+		std::cout << _book[i].getLastName();
 	}
 	std::cout << "|";
-	if (_book[i]._nickname.size() > 10)
-		std::cout << _book[i]._nickname.substr(0, 9) << ".";
+	if (_book[i].getNickname().size() > 10)
+		std::cout << _book[i].getNickname().substr(0, 9) << ".";
 	else
 	{
 		std::cout << std::right << std::setw(10);
-		std::cout << _book[i]._nickname;
+		std::cout << _book[i].getNickname();
 	}
 	std::cout << "|";
-	if (_book[i]._phone_number.size() > 10)
-		std::cout << _book[i]._phone_number.substr(0, 9) << ".";
+	if (_book[i].getPhoneNumber().size() > 10)
+		std::cout << _book[i].getPhoneNumber().substr(0, 9) << ".";
 	else
 	{
 		std::cout << std::right << std::setw(10);
-		std::cout << _book[i]._phone_number;
+		std::cout << _book[i].getPhoneNumber();
 	}
 	std::cout << "|" << std::endl;
 }
