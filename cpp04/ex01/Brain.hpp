@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/18 12:56:40 by labderra         ###   ########.fr       */
+/*   Created: 2025/07/18 12:07:18 by labderra          #+#    #+#             */
+/*   Updated: 2025/07/18 12:22:53 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
-# include "Animal.hpp"
-# include "Brain.hpp"
+#ifndef BRAIN_H
+# define BRAIN_H
 # include <iostream>
 
-class Dog : public Animal
+class Brain
 {
 private:
-	Brain* _dogBrain;
-public:
-	Dog();
-	~Dog();
-	Dog(const Dog& a);
-	Dog&	operator=(const Dog& a);
+	std::string	_ideas[100];
 	
-	void makeSound(void) const;
+public:
+	Brain();
+	~Brain();
+	Brain(Brain& b);
+	Brain&	operator=(const Brain& b);
+
+	std::string& operator[](const int i);
+	const std::string& operator[](const int i) const;
 };
 
 #endif
