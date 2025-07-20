@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:13:14 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/18 10:44:19 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal() {
-	std::cout << "Default Animal Constructor called" << std::endl;
+WrongAnimal::WrongAnimal() {
+	std::cout << "Default WrongAnimal Constructor called" << std::endl;
 }
 
-Animal::~Animal() {
-	std::cout << "Animal Destructor called" << std::endl;
+WrongAnimal::~WrongAnimal() {
+	std::cout << "WrongAnimal Destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& a) {
+WrongAnimal::WrongAnimal(const WrongAnimal& a) {
 	*this = a;
-	std::cout << "Animal Copy Constructor called" << std::endl;
+	std::cout << "WrongAnimal Copy Constructor called" << std::endl;
 }
 
-Animal&	Animal::operator=(const Animal& a) {
-	std::cout << "Animal Asign Operator called" << std::endl;
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& a) {
+	std::cout << "WrongAnimal Asign Operator called" << std::endl;
 	if (this != &a)
 		this->type = a.type;
 	return (*this);
 }
 
-void	Animal::makeSound(void) const {
-	std::cout << "[Indeterminate Animal Sound]" << std::endl;
+void	WrongAnimal::makeSound(void) const {
+	std::cout << "[Indeterminate WrongAnimal Sound]" << std::endl;
 }
 
-void	Animal::think(const int i) const {
-	(void) i;
-	std::cout <<"[Empty Brain thougt]" << std::endl;
-}
-
-std::string	Animal::getType(void) const {
+std::string	WrongAnimal::getType(void) const {
 	return (this->type);
 }

@@ -6,14 +6,14 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:08:22 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/20 13:55:45 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include <sstream>
 
-Dog::Dog() : Animal() {
+Dog::Dog() : AAnimal() {
 	this->type = "Dog";
 	this->_dogBrain = new Brain();
 	std::stringstream ss;
@@ -31,7 +31,7 @@ Dog::~Dog() {
 	delete this->_dogBrain;
 }
 
-Dog::Dog(const Dog& d) : Animal(d){
+Dog::Dog(const Dog& d) : AAnimal(d){
 	*this = d;
 	this->_dogBrain = d._dogBrain;
 	std::cout << "Dog Copy Constructor called" << std::endl;

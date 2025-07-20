@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:09:40 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/20 14:29:29 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
-# include <iostream>
+#include "AAnimal.hpp"
 
+AAnimal::AAnimal() {
+	std::cout << "Default Animal Constructor called" << std::endl;
+}
 
-class Animal
-{
-protected:
-	std::string	type;
+AAnimal::~AAnimal() {
+	std::cout << "Animal Destructor called" << std::endl;
+}
 
-public:
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal& a);
-	Animal&	operator=(const Animal& a);
-	
-	virtual void makeSound(void) const;
-	virtual void think(const int i) const;
-	std::string	getType(void) const;
-};
+AAnimal::AAnimal(const AAnimal& a) {
+	*this = a;
+	std::cout << "Animal Copy Constructor called" << std::endl;
+}
 
-#endif
+AAnimal&	AAnimal::operator=(const AAnimal& a) {
+	std::cout << "Animal Asign Operator called" << std::endl;
+	if (this != &a)
+		this->type = a.type;
+	return (*this);
+}
+
+std::string	AAnimal::getType(void) const {
+	return (this->type);
+}

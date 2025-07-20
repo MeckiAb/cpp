@@ -6,14 +6,14 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:08:58 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/20 13:54:59 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include <sstream>
 
-Cat::Cat() : Animal() {
+Cat::Cat() : AAnimal() {
 	this->type = "Cat";
 	this->_catBrain = new Brain();
 	std::stringstream ss;
@@ -30,7 +30,7 @@ Cat::~Cat() {
 	delete this->_catBrain;
 }
 
-Cat::Cat(const Cat& d) : Animal(d){
+Cat::Cat(const Cat& d) : AAnimal(d){
 	*this = d;
 	this->_catBrain = d._catBrain;
 	std::cout << "Cat Copy Constructor called" << std::endl;

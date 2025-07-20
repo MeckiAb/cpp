@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/18 12:56:37 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/20 13:07:29 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	Cat&	operator=(const Cat& a);
 
 	void makeSound(void) const;
+	void think(const int i) const;
 };
 
 #endif
