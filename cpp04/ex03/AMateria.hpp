@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 10:16:51 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/21 11:53:59 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/22 10:58:48 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class AMateria
 {
 private:
 protected:
-	std::string& _type;
+	const std::string& _type;
 public:
 	AMateria();
 	AMateria(std::string const & type);

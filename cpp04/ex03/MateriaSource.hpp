@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 11:35:02 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/22 10:18:33 by labderra         ###   ########.fr       */
+/*   Created: 2025/07/22 10:07:21 by labderra          #+#    #+#             */
+/*   Updated: 2025/07/22 10:21:10 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_H
-# define ICE_H
-# include "AMateria.hpp"
+#ifndef MATERIASOURCE_H
+# define MATERIASOURCE_H
 # include <iostream>
+# include "IMateriaSource.hpp"
 
-class Ice : public AMateria
+class MateriaSource : public IMateriaSource
 {
 private:
-	std::string& _type;
+	AMateria* library[4];
 public:
-	Ice();
-	Ice(std::string const & type);
-	~Ice();
-	Ice(AMateria const & copy);
-	AMateria& operator=(AMateria const & copy);
-	AMateria* clone() const;
-	void use(ICharacter& target);
+	MateriaSource();
+	MateriaSource(MateriaSource const & copy);
+	MateriaSource& operator=(MateriaSource const & copy);
+	~MateriaSource();
+	
+	void learnMateria(AMateria*);
+	AMateria* createMateria(std::string const & type);
 };
 
 #endif

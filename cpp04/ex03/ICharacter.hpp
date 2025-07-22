@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 10:50:14 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/21 11:06:35 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/22 10:19:56 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class ICharacter
 {
 private:
-protected:
 public:
 	ICharacter() {}
 	virtual ~ICharacter();

@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 10:56:35 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/21 11:26:47 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/22 10:20:20 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-class Character
+class Character : public ICharacter
 {
 private:
 	AMateria* inventory[4];
