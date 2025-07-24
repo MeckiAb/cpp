@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 20:08:37 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/15 13:30:34 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/24 19:29:36 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	PhoneBook::getContact(int i)
 		std::cout << "Last Name  : " << _book[i].getLastName() << std::endl;
 		std::cout << "Nickname   : " << _book[i].getNickname() << std::endl;
 		std::cout << "Phone N.   : " << _book[i].getPhoneNumber() << std::endl;
+		std::cout << "Secret     : " << _book[i].getDarkestSecret() << std::endl;
 }
 
 void	PhoneBook::addContact(Contact new_Contact)
@@ -53,42 +54,42 @@ void	PhoneBook::addContact(Contact new_Contact)
 	_next_contact++;
 }
 
+void	normalize(std::string const & s) {
+	std::string n;
+	std::size_t i = 0;
+	int c = 0;
+	while (i < s.length() && c < 9) {
+		if ((unsigned char) s.c_str()[i] > 127) {
+			n.push_back(s[i++]);
+		}
+		n.push_back(s[i++]);
+		c++;
+	}
+	if ((c==9 && s.length() - i > 2) || (c == 9 && s.length() - i == 2 && (unsigned char) s.c_str()[i] < 127)) {
+		n.push_back('.');
+		c++;
+	}
+	while (i < s.length() && c < 10) {
+		if ((unsigned char) s.c_str()[i] > 127) {
+			n.push_back(s[i++]);
+		}
+		n.push_back(s[i++]);
+		c++;
+	}
+	i += 9 - c;
+	std::cout << std::right << std::setw(i + 1);
+	std::cout << n << "|" << std::flush;
+}
+
 void	PhoneBook::getContactInline(int i)
 {
 	std::cout << "\t" << i;
 	std::cout << " |";
-	if (_book[i].getFirstName().size() > 10)
-		 std::cout << _book[i].getFirstName().substr(0, 9) << ".";
-	else
-	{
-		std::cout << std::right << std::setw(10);
-		std::cout << _book[i].getFirstName();
-	}
-	std::cout << "|";
-	if (_book[i].getLastName().size() > 10)
-		std::cout << _book[i].getLastName().substr(0, 9) << ".";
-	else
-	{
-		std::cout << std::right << std::setw(10);
-		std::cout << _book[i].getLastName();
-	}
-	std::cout << "|";
-	if (_book[i].getNickname().size() > 10)
-		std::cout << _book[i].getNickname().substr(0, 9) << ".";
-	else
-	{
-		std::cout << std::right << std::setw(10);
-		std::cout << _book[i].getNickname();
-	}
-	std::cout << "|";
-	if (_book[i].getPhoneNumber().size() > 10)
-		std::cout << _book[i].getPhoneNumber().substr(0, 9) << ".";
-	else
-	{
-		std::cout << std::right << std::setw(10);
-		std::cout << _book[i].getPhoneNumber();
-	}
-	std::cout << "|" << std::endl;
+	normalize(_book[i].getFirstName());
+	normalize(_book[i].getLastName());
+	normalize(_book[i].getNickname());
+	normalize(_book[i].getPhoneNumber());
+	std::cout << std::endl;
 }
 
 #endif
