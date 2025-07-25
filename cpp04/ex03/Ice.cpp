@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:44:39 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/25 10:53:02 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/25 10:55:33 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "Ice.hpp"
 
-Cure::Cure() : AMateria(), _type("") {
+Ice::Ice() : AMateria(), _type("") {
 }
 
-Cure::Cure(std::string const & type) : AMateria(), _type(type) {
+Ice::Ice(std::string const & type) : AMateria(), _type(type) {
 }
 
-Cure::~Cure() {
+Ice::~Ice() {
 }
 
-Cure::Cure(AMateria const & copy) : AMateria(), _type(copy.getType()){
+Ice::Ice(AMateria const & copy) : AMateria(), _type(copy.getType()){
 }
 
-AMateria& Cure::operator=(AMateria const & copy) {
+AMateria& Ice::operator=(AMateria const & copy) {
 	if (this != &copy)
 		return(*copy.clone());
 	return (*this);
 }
 
-AMateria* Cure::clone() const {
-	return (new Cure(this->getType()));
+AMateria* Ice::clone() const {
+	return (new Ice(this->getType()));
 }
 
-void Cure::use(ICharacter& target) {
-	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+void Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
