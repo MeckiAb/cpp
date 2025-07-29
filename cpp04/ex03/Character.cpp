@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 11:12:01 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/29 13:55:50 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/30 00:07:20 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,12 @@ void Character::use(int idx, ICharacter& target) {
 }
 
 void Character::equip(AMateria* m) {
-	for (int idx = 0; idx < 4; idx++) {
+	int idx;
+	for (idx = 0; idx < 4; idx++) {
 		if (!this->_inventory[idx]) {
 			this->_inventory[idx] = m;
-			return ;
+			break ;
 		}
 	}
+	if (idx == 4) delete (m);
 }

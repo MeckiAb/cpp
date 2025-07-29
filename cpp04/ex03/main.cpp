@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:14:41 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/29 14:11:21 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/30 00:03:44 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,53 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
+void aditional_tests() {
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());	
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());	//No cabe y se libera para evitar leaks
+	
+	ICharacter* me = new Character("Bob");
+
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	
+	for (int i = 0; i < 3; i++) {
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+	}								// el último no cabe, mensaje de error
+
+	me->unequip(3);
+	for (int i = 0; i < 3; i++) {
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		me->unequip(3);
+	}								// no hay espacio en el suelo, no desequipa
+	
+	ICharacter* john = new Character("john");
+
+	me->use(0, *john);
+	me->use(2, *john);
+
+	delete john;
+	delete me;
+	delete src;
+}
+
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
 
-	/* AMateria* tmp;
+	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
@@ -37,9 +73,11 @@ int main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 
-	delete bob; */
+	delete bob;
 	delete me;
 	delete src;
 
+	aditional_tests();
+	
 	return 0;
 }

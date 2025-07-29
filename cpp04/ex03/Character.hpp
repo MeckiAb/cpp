@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 10:56:35 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/28 10:23:02 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 23:51:30 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <iostream>
 # include "ICharacter.hpp"
 
-# define MAX_TILES 5
+# define MAX_TILES 3
 
 class Character : public ICharacter
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 12:11:02 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/29 14:13:06 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 23:42:12 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,20 @@ MateriaSource& MateriaSource::operator=(MateriaSource const & copy) {
 }
 
 MateriaSource::~MateriaSource() {
-	for (int i = 0; i > 4; i++) {
-		delete (this->_library[i]);
+	for (int i = 0; i < 4; i++) {
+		if (this->_library[i]) delete (this->_library[i]);
 	}
 }
 
 void MateriaSource::learnMateria(AMateria* m) {
-	for (int i = 0; i < 4; i++) {
+	int i;
+	for (i = 0; i < 4; i++) {
 		if (!this->_library[i]) {
 			this->_library[i] = m;
-			return ;
+			break ;
 		}
 	}
+	if (i == 4) delete (m);
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
