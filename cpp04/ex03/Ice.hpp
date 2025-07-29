@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 11:35:02 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/25 10:57:00 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 10:26:01 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Ice : public AMateria
 {
 private:
-	const std::string& _type;
 public:
 	Ice();
 	Ice(std::string const & type);

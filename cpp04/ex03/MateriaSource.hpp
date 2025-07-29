@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:07:21 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/22 10:21:10 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:42:46 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-	AMateria* library[4];
+	AMateria* _library[4];
 public:
 	MateriaSource();
 	MateriaSource(MateriaSource const & copy);
 	MateriaSource& operator=(MateriaSource const & copy);
 	~MateriaSource();
 	
-	void learnMateria(AMateria*);
+	void learnMateria(AMateria* m);
 	AMateria* createMateria(std::string const & type);
 };
 

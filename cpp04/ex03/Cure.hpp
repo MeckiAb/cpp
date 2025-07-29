@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 11:35:02 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/22 10:59:19 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 12:59:38 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Cure : public AMateria
 {
 private:
-	const std::string& _type;
 public:
 	Cure();
 	Cure(std::string const & type);

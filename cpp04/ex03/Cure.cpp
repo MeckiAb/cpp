@@ -6,27 +6,27 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:44:39 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/25 10:53:02 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:34:14 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria(), _type("") {
+Cure::Cure() : AMateria("cure") {
 }
 
-Cure::Cure(std::string const & type) : AMateria(), _type(type) {
+Cure::Cure(std::string const & type) : AMateria(type) {
 }
 
 Cure::~Cure() {
 }
 
-Cure::Cure(AMateria const & copy) : AMateria(), _type(copy.getType()){
+Cure::Cure(AMateria const & copy) : AMateria(copy.getType()) {
 }
 
 AMateria& Cure::operator=(AMateria const & copy) {
 	if (this != &copy)
-		return(*copy.clone());
+		this->_type = copy.getType();
 	return (*this);
 }
 

@@ -6,17 +6,14 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:14:41 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/22 10:17:15 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 14:11:21 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
-#include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
-#include "ICharacter.hpp"
 #include "Character.hpp"
 
 int main()
@@ -24,10 +21,12 @@ int main()
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
 
-	AMateria* tmp;
+	/* AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
@@ -38,7 +37,7 @@ int main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 
-	delete bob;
+	delete bob; */
 	delete me;
 	delete src;
 

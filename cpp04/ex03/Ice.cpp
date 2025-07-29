@@ -6,32 +6,33 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:44:39 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/25 10:55:33 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 13:33:17 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria(), _type("") {
+Ice::Ice() : AMateria("ice") {
 }
 
-Ice::Ice(std::string const & type) : AMateria(), _type(type) {
+Ice::Ice(std::string const & type) : AMateria(type) {
 }
 
 Ice::~Ice() {
 }
 
-Ice::Ice(AMateria const & copy) : AMateria(), _type(copy.getType()){
+Ice::Ice(AMateria const & copy) : AMateria(copy.getType()) {
 }
 
 AMateria& Ice::operator=(AMateria const & copy) {
-	if (this != &copy)
-		return(*copy.clone());
+	if (this != &copy){
+		this->_type = copy.getType();
+	}
 	return (*this);
 }
 
 AMateria* Ice::clone() const {
-	return (new Ice(this->getType()));
+	return (new Ice());
 }
 
 void Ice::use(ICharacter& target) {
