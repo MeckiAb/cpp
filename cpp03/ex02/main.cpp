@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 19:40:22 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/15 12:05:40 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/29 10:14:08 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,103 +36,9 @@ int	main() {
 
 	std::cout << "\n--- IS REPAIRED, USES ALL ENERGY ---" << std::endl;
 	Francis.beRepaired(10);
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
-	Francis.attack("Dummy");
+	for (int i = 0; i < 97; i++) {
+		Francis.attack("Dummy");
+	}
 	
 	std::cout << "\n--- MAKES COPY, STILL EXHAUSTED ---" << std::endl;
 	FragTrap Johnie = FragTrap(Francis);
