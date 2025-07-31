@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:55:45 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:25:03 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Dog::~Dog() {
 
 Dog::Dog(const Dog& d) : AAnimal(d){
 	*this = d;
-	this->_dogBrain = d._dogBrain;
+	this->_dogBrain = new Brain(*d._dogBrain);
 	std::cout << "Dog Copy Constructor called" << std::endl;
 }
 

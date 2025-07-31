@@ -2,6 +2,7 @@ NAME = FFantasy
 CC = c++ -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
 
 SRC = Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp AMateria.cpp
+INC = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
@@ -9,7 +10,7 @@ all : $(NAME)
 %.o : %.cpp
 	$(CC) -c $< -o $@
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(INC)
 	$(CC) $(OBJ) -o $@
 
 clean :

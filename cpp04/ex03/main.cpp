@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 10:14:41 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/30 00:03:44 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:31:57 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,11 @@ void aditional_tests() {
 
 int main()
 {
-	IMateriaSource* src = new MateriaSource();
+	Character paco;
+	{
+		Character manolo = paco;
+	}
+/* 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
@@ -77,7 +81,7 @@ int main()
 	delete me;
 	delete src;
 
-	aditional_tests();
-	
+//	aditional_tests();
+	 */
 	return 0;
 }

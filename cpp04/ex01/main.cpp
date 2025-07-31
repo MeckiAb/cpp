@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 16:21:43 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:23:51 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:23:20 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,26 @@
 int main() {
 
 	std::cout << "\nANIMAL CLASS - CONSTRUCTORS" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal* zoo[10];
+	for (int i = 0; i < 5; i++) {
+		zoo[i] = new Dog();
+	}
+	for (int i = 5; i < 10; i++) {
+		zoo[i] = new Cat();
+	}
 
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-
-	std::cout << "\nANIMAL CLASS - SOUNDS" << std::endl;
-	meta->makeSound();
-	j->makeSound();
-	i->makeSound();
-
-	meta->think(7);
-	j->think(5);
-	i->think(24);
+	std::cout << "\nANIMAL CLASS - SOUNDS & IDEAS" << std::endl;
+	for (int i = 0; i < 10; i++) {
+		zoo[i]->makeSound();
+	}
+	for (int i = 0; i < 10; i++) {
+		zoo[i]->think(i * i);
+	}
 
 	std::cout << "\nANIMAL CLASS - DESTRUCTORS" << std::endl;
-	delete meta;
-	delete j;
-	delete i;
+	for (int i = 0; i < 10; i++) {
+		delete (zoo[i]);
+	}
 
 	return 0;
 }

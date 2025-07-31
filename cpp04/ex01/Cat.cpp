@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 15:37:32 by labderra          #+#    #+#             */
-/*   Updated: 2025/07/20 13:08:58 by labderra         ###   ########.fr       */
+/*   Updated: 2025/07/31 14:44:00 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Cat::~Cat() {
 
 Cat::Cat(const Cat& d) : Animal(d){
 	*this = d;
-	this->_catBrain = d._catBrain;
+	this->_catBrain = new Brain(*d._catBrain);
 	std::cout << "Cat Copy Constructor called" << std::endl;
 }
 
