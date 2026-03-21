@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 20:21:46 by labderra          #+#    #+#             */
-/*   Updated: 2026/03/18 19:50:56 by labderra         ###   ########.fr       */
+/*   Updated: 2026/03/21 19:55:51 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ public:
     
     void beSigned(const Bureaucrat &bc);
 
-	void virtual execute(Bureaucrat const & executor) const;
+	void execute(const Bureaucrat &executor) const;
+
+    virtual void formAction() const = 0;
     
     class	GradeTooHighException: public std::exception {
         public:

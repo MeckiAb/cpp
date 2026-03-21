@@ -3,26 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: labderra <labderra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 13:42:12 by labderra          #+#    #+#             */
-/*   Updated: 2026/03/18 19:26:14 by labderra         ###   ########.fr       */
+/*   Updated: 2026/03/21 22:00:41 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include <iostream>
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main() {
-    Bureaucrat Antonio("Antonio", 101);
-	Form licencia("Licencia de Obras", 100, 150);
-	Bureaucrat Benito("Benito");
-	
-    std::cout << Antonio << std::endl;
-	Antonio.signForm(licencia);
-	Antonio.incrementGrade();
-	Antonio.signForm(licencia);
-	std::cout << licencia << Antonio << std::endl;
-    std::cout << Benito << std::endl;
+    try {
+        Bureaucrat bc("Antonio Funcionario", 1);
+        ShrubberyCreationForm shrubbery("home");
+        PresidentialPardonForm pardon("Criminal Peligroso");
+        RobotomyRequestForm robotomy("Bing Bong");
+
+        std::cout << bc << std::endl;
+        std::cout << shrubbery << std::endl;
+        std::cout << pardon << std::endl;
+        std::cout << robotomy << std::endl;
+
+        bc.signForm(shrubbery);
+        bc.signForm(pardon);
+        bc.signForm(robotomy);
+
+        bc.executeForm(shrubbery);
+        bc.executeForm(pardon);
+        bc.executeForm(robotomy);
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
     return 0;
 }

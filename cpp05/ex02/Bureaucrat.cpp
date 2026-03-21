@@ -6,7 +6,7 @@
 /*   By: labderra <labderra@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/15 11:15:35 by labderra          #+#    #+#             */
-/*   Updated: 2026/03/15 23:39:15 by labderra         ###   ########.fr       */
+/*   Updated: 2026/03/21 19:52:39 by labderra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				Bureaucrat::decrementGrade() {
     this->setGrade(this->grade + 1);
 };
 
-void                Bureaucrat::signForm(Form& form) {
+void                Bureaucrat::signForm(AForm& form) {
     if (form.getIsSigned()) {
         std::cout << *this << " couldn't sign " << form << "because it's already signed." << std::endl;
         return;
@@ -98,6 +98,19 @@ void                Bureaucrat::signForm(Form& form) {
         std::cout << *this << " signed " << form << std::endl;
     } catch (const std::exception& e) {
         std::cout << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
+    }
+};
+
+void                Bureaucrat::executeForm(const AForm& form) const {
+    if (!form.getIsSigned()) {
+        std::cout << *this << " couldn't execute " << form << " because it's not signed." << std::endl;
+        return;
+    }
+    try {
+        form.execute(*this);
+        std::cout << *this << " executed " << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << *this << " couldn't execute " << form << " because " << e.what() << std::endl;
     }
 };
 
